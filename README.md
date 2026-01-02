@@ -4,18 +4,20 @@ This repository contains **small, practical Redis labs written in Go**.
 The goal is to understand Redis concepts through **tiny, focused examples**
 instead of building a large project.
 
-Each lab demonstrates **one Redis concept** that you can modify and run locally.
+Each lab is independent and can be run by combining:
+- a shared Redis client file
+- one lab file at a time
 
 ---
 
 ## 🧠 What you will practice
 
 - Redis Strings (atomic counters, TTL)
-- Redis Hashes (object storage)
-- Redis Sets (online users)
+- Redis Hashes (object-style storage)
+- Redis Sets (online user tracking)
 - Redis Sorted Sets (leaderboards)
-- Redis anti-pattern awareness
-- Redis behavior under small failure scenarios
+- Basic distributed locking
+- Redis Streams (event-style processing)
 
 ---
 
@@ -24,13 +26,30 @@ Each lab demonstrates **one Redis concept** that you can modify and run locally.
 - Go 1.21+
 - Docker
 
-> If Docker is not installed, the setup script will guide you.
-
 ---
 
-## 🚀 Setup (One command)
+## 🐳 Run Redis locally (Docker)
+
+Start Redis using a single Docker command:
 
 ```bash
-git clone https://github.com/Dev49199/Redis-Labs.git
-cd redis-go-labs
-./setup.sh
+docker run -d \
+  --name redis-go-labs \
+  -p 6379:6379 \
+  redis:7
+```
+
+## Other Commands needed
+
+```bash
+docker ps
+
+docker exec -it redis-go-labs redis-cli
+
+
+go run redisClient.go lab1_counter.go
+go run redisClient.go lab2_hash.go
+go run redisClient.go lab3_set.go
+go run redisClient.go lab6_streams.go
+etc..
+```
