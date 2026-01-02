@@ -9,7 +9,7 @@ func saveUser(rdb *redis.Client) {
 	key := "user:1"
 
 	rdb.HSet(ctx, key, map[string]interface{}{
-		"name": "Dev",
+		"name": "Jhon Doe",
 		"age":  27,
 		"role": "engineer",
 	})
