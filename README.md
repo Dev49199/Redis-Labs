@@ -31,6 +31,6 @@ Each lab demonstrates **one Redis concept** that you can modify and run locally.
 ## 🚀 Setup (One command)
 
 ```bash
-git clone https://github.com/<your-username>/redis-go-labs.git
+git clone https://github.com/Dev49199/Redis-Labs.git
 cd redis-go-labs
 ./setup.sh
